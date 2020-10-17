@@ -4,8 +4,8 @@ header('Content-Type: application/json');
 
 //database
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_USERNAME', 'pi');
+define('DB_PASSWORD', 'yusuf');
 define('DB_NAME', 'iot');
 
 //get connection
@@ -16,7 +16,7 @@ if (!$mysqli) {
 }
 
 //query to get data from the table
-$query = sprintf("SELECT * FROM data ORDER BY id ASC");
+$query = sprintf("SELECT * FROM iot ORDER BY id ASC");
 
 //execute query
 $result = $mysqli->query($query);

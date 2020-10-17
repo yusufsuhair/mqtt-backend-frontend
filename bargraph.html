@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating Dynamic Data Graph using PHP and Chart.js</title>
+    <style type="text/css">
+        BODY {
+            wpointth: 550PX;
+        }
+
+        #chart-container {
+            wpointth: 100%;
+            height: auto;
+            padding: 10%;
+        }
+    </style>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/chart.js/dist/Chart.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="chart-container">
+    <canvas id="graphCanvas"></canvas>
+</div>
+
+<script>
+    $(document).ready(function () {
+        showGraph();
+    });
+
+
+    function showGraph() {
+        {
+            $.post("data.php",
+                function (data) {
+                    console.log(data);
+                    var created_at = [];
+                    var point = [];
+
+                    for (var i in data) {
+                        created_at.push(data[i].created_at);
+                        point.push(data[i].pts);
+                    }
+
+                    var chartdata = {
+                        labels: created_at,
+                        datasets: [
+                            {
+                                label: 'Points',
+                                backgroundColor: '#49e2ff',
+                                borderColor: '#46d5f1',
+                                hoverBackgroundColor: '#CCCCCC',
+                                hoverBorderColor: '#666666',
+                                data: point
+                            }
+                        ]
+                    };
+
+                    var graphTarget = $("#graphCanvas");
+
+                    var barGraph = new Chart(graphTarget, {
+                        type: 'bar',
+                        data: chartdata
+                    });
+                });
+        }
+    }
+</script>
+
+</body>
+</html>

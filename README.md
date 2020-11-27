@@ -6,6 +6,6 @@ This is the GUI from the data I get from the mqtt-publisher. The data are dynami
 2. Run barchart.html from your local.
 
 Resources:
-1. https://github.com/yusufsuhair/mqtt-gui
+1. https://github.com/yusufsuhair/mqtt-backend-frontend
 2. https://github.com/yusufsuhair/mqtt-subscriber
 3. https://github.com/yusufsuhair/mqtt-publisher

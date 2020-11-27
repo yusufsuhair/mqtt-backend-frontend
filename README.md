@@ -1,4 +1,4 @@
-# mqtt-gui
+# mqtt-backend-frontend
 
 This is the GUI from the data I get from the mqtt-publisher. The data are dynamically showed using Chart.js
 
